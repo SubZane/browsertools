@@ -5,7 +5,7 @@ var kitUtils = {
 		if (typeof $('body').data('debug') === 'boolean' && $('body').data('debug') === true) {
 			this.debug = true;
 		}
-		episerverIframeCheck();
+		this.episerverIframeCheck();
 	},
 
 	// Add class to body tag if page is in episerver edit mode
