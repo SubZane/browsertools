@@ -8,6 +8,22 @@ var kitUtils = {
 		this.episerverIframeCheck();
 	},
 
+	isAndroid: function () {
+		if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	isIOS: function () {
+		if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
 	// Add class to body tag if page is in episerver edit mode
 	episerverIframeCheck: function () {
 		var isInIframe = (window.location !== window.parent.location) ? true : false;
