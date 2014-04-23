@@ -9,7 +9,7 @@ var kitUtils = {
 	},
 
 	isAndroid: function () {
-		if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
+		if (navigator.userAgent.toLowerCase().indexOf('android') > -1) {
 			return true;
 		} else {
 			return false;
@@ -21,6 +21,20 @@ var kitUtils = {
 			return true;
 		} else {
 			return false;
+		}
+	},
+
+	detectIEVersion: function () {
+		if (/\bMSIE 6/.test(navigator.userAgent) && !window.opera) {
+			document.documentElement.className += ' ie6';
+		} else if (navigator.appVersion.indexOf('MSIE 7.') != -1) {
+			document.documentElement.className += ' ie7';
+		} else if (navigator.appVersion.indexOf('MSIE 8.') != -1) {
+			document.documentElement.className += ' ie8';
+		} else if (navigator.appVersion.indexOf('MSIE 9.') != -1) {
+			document.documentElement.className += ' ie9';
+		} else if ( /*@cc_on!@*/ false && document.documentMode === 10) {
+			document.documentElement.className += ' ie10';
 		}
 	},
 
