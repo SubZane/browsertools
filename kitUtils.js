@@ -17,13 +17,46 @@ var kitUtils = {
 	},
 
 	isIOS: function () {
-		if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+		if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPad/i)) || (navigator.userAgent.match(/iPod/i))) {
 			return true;
 		} else {
 			return false;
 		}
 	},
 
+	isBlackBerry: function () {
+		if (navigator.userAgent.match(/BlackBerry/i)) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	isIEMobile: function () {
+		if (navigator.userAgent.match(/IEMobile/i)) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	isOperaMini: function () {
+		if (navigator.userAgent.match(/Opera Mini/i)) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	isMobileBrowser: function () {
+		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	// Detects the IE version and adds a class with browser version to the HTML element
 	detectIEVersion: function () {
 		if (/\bMSIE 6/.test(navigator.userAgent) && !window.opera) {
 			document.documentElement.className += ' ie6';
