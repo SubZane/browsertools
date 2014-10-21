@@ -86,14 +86,23 @@ var kitUtils = {
 		}
 	},
 
-	log: function (message) {
+	log: function (message, data, type) {
+
+		// Change log type if provided, else default to log
+		type = typeof type !== 'undefined' ? type : 'log';
 
 		// Check if debug is enabled
 		if (this.debug) {
 
 			// Check for console
 			if (window.console) {
-				console.log(message);
+
+				// Check for provided data
+				if(typeof data !== 'undefined' || data !== null || data.length > 0) {
+					console[type](message, data);
+				} else {
+					console[type](message, data);
+				}
 			}
 		}
 	}
