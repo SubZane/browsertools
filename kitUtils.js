@@ -16,6 +16,31 @@ var kitUtils = {
 		}
 	},
 
+	isMac: function () {
+		if (navigator.platform.toLowerCase().indexOf('mac') > -1) {
+			return true;
+		} else {
+			return false;
+		}
+
+	},
+
+	isWindows: function () {
+		if (navigator.platform.toLowerCase().indexOf('win') > -1) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	isLinux: function () {
+		if (navigator.platform.toLowerCase().indexOf('linux') > -1) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
 	isIOS: function () {
 		if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPad/i)) || (navigator.userAgent.match(/iPod/i))) {
 			return true;

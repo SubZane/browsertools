@@ -1,7 +1,7 @@
 {
 	"name": "kitUtils",
 	"main": "kitUtils.js",
-	"version": "0.9.4",
+	"version": "0.10.0",
 	"homepage": "https://github.com/KnowitLabs/kitUtils",
 	"authors": [
 		"Andreas Norman <andreas.norman@knowit.se>"
