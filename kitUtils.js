@@ -81,18 +81,69 @@ var kitUtils = {
 		}
 	},
 
+	// Detects the OS and adds a class with current operating system to the HTML element
+	detectOS: function () {
+		if (kitUtils.isMac()) {
+			document.documentElement.className += ' macos';
+		} else if (kitUtils.isWindows()) {
+			document.documentElement.className += ' windows';
+		} else if (kitUtils.isLinux()) {
+			document.documentElement.className += ' linux';
+		}
+	},
+
 	// Detects the IE version and adds a class with browser version to the HTML element
 	detectIEVersion: function () {
+		if (kitUtils.isIE6()) {
+			document.documentElement.className += ' ie ie6';
+		} else if (kitUtils.isIE7()) {
+			document.documentElement.className += ' ie ie7';
+		} else if (kitUtils.isIE8()) {
+			document.documentElement.className += ' ie ie8';
+		} else if (kitUtils.isIE9()) {
+			document.documentElement.className += ' ie ie9';
+		} else if (kitUtils.isIE10()) {
+			document.documentElement.className += ' ie ie10';
+		}
+	},
+
+	isIE6: function() {
 		if (/\bMSIE 6/.test(navigator.userAgent) && !window.opera) {
-			document.documentElement.className += ' ie6';
-		} else if (navigator.appVersion.indexOf('MSIE 7.') != -1) {
-			document.documentElement.className += ' ie7';
-		} else if (navigator.appVersion.indexOf('MSIE 8.') != -1) {
-			document.documentElement.className += ' ie8';
-		} else if (navigator.appVersion.indexOf('MSIE 9.') != -1) {
-			document.documentElement.className += ' ie9';
-		} else if ( /*@cc_on!@*/ false && document.documentMode === 10) {
-			document.documentElement.className += ' ie10';
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	isIE7: function() {
+		if (navigator.appVersion.indexOf('MSIE 7.') != -1) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	isIE8: function() {
+		if (navigator.appVersion.indexOf('MSIE 8.') != -1) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	isIE9: function() {
+		if (navigator.appVersion.indexOf('MSIE 9.') != -1) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	isIE10: function() {
+		if ( /*@cc_on!@*/ false && document.documentMode === 10) {
+			return true;
+		} else {
+			return false;
 		}
 	},
 
