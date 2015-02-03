@@ -92,18 +92,65 @@ var kitUtils = {
 		}
 	},
 
+	detectBrowserVendor: function() {
+		if (kitUtils.isFirefox()) {
+			document.documentElement.className += ' firefox';
+		} else if (kitUtils.isGoogleChrome()) {
+			document.documentElement.className += ' chrome';
+		} else if(kitUtils.isSafari()) {
+			document.documentElement.className += ' safari';
+		} else if (kitUtils.isInternetExplorer()) {
+			document.documentElement.className += ' ie';
+		}
+	},
+
 	// Detects the IE version and adds a class with browser version to the HTML element
 	detectIEVersion: function () {
 		if (kitUtils.isIE6()) {
-			document.documentElement.className += ' ie ie6';
+			document.documentElement.className += ' ie6';
 		} else if (kitUtils.isIE7()) {
-			document.documentElement.className += ' ie ie7';
+			document.documentElement.className += ' ie7';
 		} else if (kitUtils.isIE8()) {
-			document.documentElement.className += ' ie ie8';
+			document.documentElement.className += ' ie8';
 		} else if (kitUtils.isIE9()) {
-			document.documentElement.className += ' ie ie9';
+			document.documentElement.className += ' ie9';
 		} else if (kitUtils.isIE10()) {
-			document.documentElement.className += ' ie ie10';
+			document.documentElement.className += ' ie10';
+		}
+	},
+
+	isInternetExplorer: function() {
+		if ((navigator.appVersion.indexOf('MSIE') != -1) || kitUtils.isIE10() || kitUtils.isIE6()) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	isFirefox: function() {
+		// Firefox/Mac: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:33.0) Gecko/20100101 Firefox/33.0
+		if (navigator.userAgent.match(/Firefox/i)) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	isGoogleChrome: function() {
+		// Chrome/Mac: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.94 Safari/537.36
+		if (navigator.userAgent.match(/Chrome/i)) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	isSafari: function() {
+		// Safari/Mac: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/600.3.18 (KHTML, like Gecko) Version/8.0.3 Safari/600.3.18
+		if (navigator.userAgent.match(/Safari/i) && !navigator.userAgent.match(/Chrome/i)) {
+			return true;
+		} else {
+			return false;
 		}
 	},
 
@@ -141,6 +188,14 @@ var kitUtils = {
 
 	isIE10: function() {
 		if ( /*@cc_on!@*/ false && document.documentMode === 10) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	isIE11: function() {
+		if (!!navigator.userAgent.match(/Trident.*rv[ :]*11\./)) {
 			return true;
 		} else {
 			return false;

@@ -26,6 +26,7 @@
             <p><code>kitUtils.isOperaMini();</code></p>
             <p><code>kitUtils.isMobileBrowser();</code></p>
 
+
             <hr />
 
             <h2>Internet Explorer Version</h2>
@@ -58,11 +59,12 @@
     <script>
       $(function() {
         kitUtils.debug = true;
-
+        kitUtils.detectBrowserVendor();
         kitUtils.log('Standard log message');
         kitUtils.log('I want to inform you', null, 'info');
         kitUtils.log('Uh my god, BUGS!', {bugs: 'die'}, 'debug');
         kitUtils.log('Epic fail', {bugs: 'won', server: 'dead'}, 'error');
+
       });
     </script>
   </body>
