@@ -8,6 +8,11 @@ var kitUtils = {
 		this.episerverIframeCheck();
 	},
 
+	isTouchDevice: function () {
+		//navigator.msMaxTouchPoints for microsoft IE backwards compatibility
+		return (('ontouchstart' in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+	},
+
 	isAndroid: function () {
 		if (navigator.userAgent.toLowerCase().indexOf('android') > -1) {
 			return true;
@@ -202,10 +207,14 @@ var kitUtils = {
 		}
 	},
 
+	isInIFrame: function () {
+		var isInIframe = (window.location !== window.parent.location) ? true : false;
+		return isInIframe;
+	},
+
 	// Add class to body tag if page is in episerver edit mode
 	episerverIframeCheck: function () {
-		var isInIframe = (window.location !== window.parent.location) ? true : false;
-		if (isInIframe) {
+		if (kitUtils.isInIFrame()) {
 			$('body').addClass('episerver');
 		}
 	},
