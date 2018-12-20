@@ -1,6 +1,6 @@
 {
   "name": "browsertools-js",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "description": "A set of functions to assist in JS development to circumvent different browser \"features\"",
   "main": "browsertools.js",
   "repository": "https://subzane@github.com/SubZane/browsertools.git",
