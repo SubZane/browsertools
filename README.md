@@ -1,4 +1,4 @@
-kitUtils 1.0
+Browsertools 1.0
 ========
 
-kitUtils
+A set of functions to assist in JS development to circumvent different browser "features"

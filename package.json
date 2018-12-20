@@ -1,0 +1,10 @@
+{
+  "name": "browsertools-js",
+  "version": "1.0.0",
+  "description": "A set of functions to assist in JS development to circumvent different browser \"features\"",
+  "main": "browsertools.js",
+  "repository": "https://subzane@github.com/SubZane/browsertools.git",
+  "author": "Andreas Norman <andreas.norman@knowit.se>",
+  "license": "MIT",
+  "private": false
+}

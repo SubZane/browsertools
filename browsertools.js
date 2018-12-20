@@ -1,4 +1,4 @@
-var kitUtils = {
+var browsertools = {
 	debug: false,
 
 	init: function () {
@@ -88,44 +88,44 @@ var kitUtils = {
 
 	// Detects the OS and adds a class with current operating system to the HTML element
 	detectOS: function () {
-		if (kitUtils.isMac()) {
+		if (browsertools.isMac()) {
 			document.documentElement.className += ' macos';
-		} else if (kitUtils.isWindows()) {
+		} else if (browsertools.isWindows()) {
 			document.documentElement.className += ' windows';
-		} else if (kitUtils.isLinux()) {
+		} else if (browsertools.isLinux()) {
 			document.documentElement.className += ' linux';
 		}
 	},
 
 	detectBrowserVendor: function() {
-		if (kitUtils.isFirefox()) {
+		if (browsertools.isFirefox()) {
 			document.documentElement.className += ' firefox';
-		} else if (kitUtils.isGoogleChrome()) {
+		} else if (browsertools.isGoogleChrome()) {
 			document.documentElement.className += ' chrome';
-		} else if(kitUtils.isSafari()) {
+		} else if(browsertools.isSafari()) {
 			document.documentElement.className += ' safari';
-		} else if (kitUtils.isInternetExplorer()) {
+		} else if (browsertools.isInternetExplorer()) {
 			document.documentElement.className += ' ie';
 		}
 	},
 
 	// Detects the IE version and adds a class with browser version to the HTML element
 	detectIEVersion: function () {
-		if (kitUtils.isIE6()) {
+		if (browsertools.isIE6()) {
 			document.documentElement.className += ' ie6';
-		} else if (kitUtils.isIE7()) {
+		} else if (browsertools.isIE7()) {
 			document.documentElement.className += ' ie7';
-		} else if (kitUtils.isIE8()) {
+		} else if (browsertools.isIE8()) {
 			document.documentElement.className += ' ie8';
-		} else if (kitUtils.isIE9()) {
+		} else if (browsertools.isIE9()) {
 			document.documentElement.className += ' ie9';
-		} else if (kitUtils.isIE10()) {
+		} else if (browsertools.isIE10()) {
 			document.documentElement.className += ' ie10';
 		}
 	},
 
 	isInternetExplorer: function() {
-		if ((navigator.appVersion.indexOf('MSIE') != -1) || kitUtils.isIE10() || kitUtils.isIE6()) {
+		if ((navigator.appVersion.indexOf('MSIE') != -1) || browsertools.isIE10()) {
 			return true;
 		} else {
 			return false;
@@ -153,22 +153,6 @@ var kitUtils = {
 	isSafari: function() {
 		// Safari/Mac: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/600.3.18 (KHTML, like Gecko) Version/8.0.3 Safari/600.3.18
 		if (navigator.userAgent.match(/Safari/i) && !navigator.userAgent.match(/Chrome/i)) {
-			return true;
-		} else {
-			return false;
-		}
-	},
-
-	isIE6: function() {
-		if (/\bMSIE 6/.test(navigator.userAgent) && !window.opera) {
-			return true;
-		} else {
-			return false;
-		}
-	},
-
-	isIE7: function() {
-		if (navigator.appVersion.indexOf('MSIE 7.') != -1) {
 			return true;
 		} else {
 			return false;
@@ -214,7 +198,7 @@ var kitUtils = {
 
 	// Add class to body tag if page is in episerver edit mode
 	episerverIframeCheck: function () {
-		if (kitUtils.isInIFrame()) {
+		if (browsertools.isInIFrame()) {
 			$('body').addClass('episerver');
 		}
 	},
