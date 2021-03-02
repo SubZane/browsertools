@@ -111,13 +111,7 @@ var browsertools = {
 
 	// Detects the IE version and adds a class with browser version to the HTML element
 	detectIEVersion: function () {
-		if (browsertools.isIE6()) {
-			document.documentElement.className += ' ie6';
-		} else if (browsertools.isIE7()) {
-			document.documentElement.className += ' ie7';
-		} else if (browsertools.isIE8()) {
-			document.documentElement.className += ' ie8';
-		} else if (browsertools.isIE9()) {
+		if (browsertools.isIE9()) {
 			document.documentElement.className += ' ie9';
 		} else if (browsertools.isIE10()) {
 			document.documentElement.className += ' ie10';
@@ -153,14 +147,6 @@ var browsertools = {
 	isSafari: function() {
 		// Safari/Mac: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/600.3.18 (KHTML, like Gecko) Version/8.0.3 Safari/600.3.18
 		if (navigator.userAgent.match(/Safari/i) && !navigator.userAgent.match(/Chrome/i)) {
-			return true;
-		} else {
-			return false;
-		}
-	},
-
-	isIE8: function() {
-		if (navigator.appVersion.indexOf('MSIE 8.') != -1) {
 			return true;
 		} else {
 			return false;
